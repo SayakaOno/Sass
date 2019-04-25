@@ -1,8 +1,9 @@
-@import 'main.scss';
-@import 'mixin.scss';
-@import 'module.scss';
-@import 'reset.scss';
-@import 'sample.scss';
+@import '_variables.scss';
+@import '_main.scss';
+@import '_mixin.scss';
+@import '_module.scss';
+@import '_reset.scss';
+@import '_sample.scss';
 
 .style {
   color: chartreuse;
