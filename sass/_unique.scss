@@ -7,6 +7,7 @@ p {
 }
 .boxA {
   @include itemBox(100px, null, 10px, 20px);
+  background-color: yellow;
 }
 
 $border: 1px;
