@@ -18,6 +18,11 @@ $color-link: #ff8c28;
 
 // break point -------------------
 $breakpoints: (
+  xs: 'only screen and (max-width: 320px)',
+  s: 'only screen and (max-width: 575px)',
+  m: 'only screen and (max-width: 767px)',
+  l: 'only screen and (max-width: 991px)',
+  xl: 'only screen and (max-width: 1199px)',
   sp: 'screen and (max-width: 599px)',
   pc: 'screen and (min-width: 600px)'
 );

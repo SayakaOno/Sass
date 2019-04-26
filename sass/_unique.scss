@@ -48,3 +48,11 @@ $endValue: 10 !default;
 .text2 {
   font-size: rem(14, 12);
 }
+
+.itemC {
+  background: #fff url(/img/bg.png) no-repeat center;
+  @media screen and (-webkit-min-device-pixel-ratio: 1.5),
+    (min-resolution: 2dppx) {
+    @include bg_size(690, 400);
+  }
+}

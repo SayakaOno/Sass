@@ -12,3 +12,35 @@
 #side {
   width: $width-side;
 }
+
+ul.linkList {
+  margin: 20px;
+  li {
+    list-style: none;
+    margin: 0 0 1px;
+    a {
+      position: relative;
+      display: block;
+      padding: 15px {
+        right: 27px;
+      }
+      background: #eee;
+      color: #333;
+      text-decoration: none;
+      @include linkIcon();
+    }
+  }
+}
+
+body {
+  background-color: white;
+  @include media(l) {
+    background-color: blue;
+  }
+  @include media(m) {
+    background-color: green;
+  }
+  @include media(xs) {
+    background-color: red;
+  }
+}

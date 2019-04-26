@@ -48,3 +48,52 @@ $hover: #00f;
   z-index: map-get($layer, $key);
 }
 // example => _module.scss
+
+@mixin linkIcon($color: #333) {
+  &::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    right: 15px;
+    width: 10px;
+    height: 10px;
+    margin-top: -7px;
+    border-top: 3px solid $color;
+    border-right: 3px solid $color;
+    transform: rotate(45deg);
+  }
+}
+// example => _main.scss
+
+@mixin rwd-iframe($width: 16, $height: 9) {
+  position: relative;
+  padding-top: percentage($height / $width);
+  > iframe {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100% !important;
+    height: 100% !important;
+  }
+}
+// example => _module.scss
+
+@mixin media($breakpoint) {
+  @if map-has-key($breakpoints, $breakpoint) {
+    @media #{map-get($breakpoints, $breakpoint)} {
+      @content;
+    }
+  } @else {
+    @error "$breakpoints doesn't have the key '#{$breakpoint}!'";
+  }
+}
+// example => _module.scss
+
+@mixin bg_size($w, $h: auto) {
+  @if $h == auto {
+    background-size: round($w / 2) + px $h;
+  } @else {
+    background-size: round($w / 2) + px round($h / 2) + px;
+  }
+}
+// example => _unique.scss

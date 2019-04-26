@@ -115,3 +115,9 @@ $layer: (
 .tooltip {
   @include z-index(tooltip);
 }
+
+@media all and (max-width: 768px) {
+  .movie {
+    @include rwd-iframe(640, 360);
+  }
+}
