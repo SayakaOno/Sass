@@ -1,0 +1,9 @@
+$baseFontSize: 16;
+html {
+  font-size: $baseFontSize + px;
+}
+
+@function rem($pixels, $context: $baseFontSize) {
+  @return $pixels / $context * 1rem;
+}
+// example => _unique.scss

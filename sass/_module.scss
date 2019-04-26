@@ -1,3 +1,117 @@
-.module {
-  color: burlywood;
+%markBase {
+  padding-left: 15px;
+  background-position: 0em 0.5em;
+  background-repeat: no-repeat;
+}
+
+$temp: '';
+@for $i from 5 through 15 {
+  @if $i <10 {
+    $temp: '0#{$i}';
+  } @else {
+    $temp: #{$i};
+  }
+  .mark_#{$temp} {
+    @extend %markBase;
+    background-image: url(../img_mark_#{$temp}.png);
+  }
+}
+
+a {
+  @include link-color;
+}
+.special a {
+  @include link-color(#f00);
+}
+
+$bgSetList: top red, about blue, company green, contact yellow;
+@each $bgSet in $bgSetList {
+  .body-#{nth($bgSet, 1)} {
+    background-image: url(../img/bg_#{nth($bgSet, 2)}.png);
+  }
+}
+
+.red-gradation {
+  @include linear-gradient;
+}
+.grey-gradation {
+  @include linear-gradient(#999, to right, 50%);
+}
+
+// Social
+$sns-colors: (
+  twitter: #1b95e0,
+  facebook: #3b5998,
+  googleplus: #dc4e41
+);
+.sns {
+  &__btn {
+    background-repeat: no-repeat;
+    @each $key, $value in $sns-colors {
+      &.-#{$key} {
+        background-image: url(/img/icon_#{$key}.png);
+        background-color: $value;
+      }
+    }
+  }
+}
+
+$sns-values: (
+  twitter: '01.png' '#1b95e0',
+  facebook: '02.png' '#3b5998',
+  googleplus: 'gplus.png' '#dc4e41'
+);
+.sns2 {
+  &__btn {
+    background-repeat: no-repeat;
+    @each $key, $values in $sns-values {
+      &.-#{$key} {
+        background-image: url(/img/icon/#{nth($values, 1)});
+        background-color: #{nth($values, 2)};
+      }
+    }
+  }
+}
+
+$sns-config: (
+  colors: (
+    twitter: #1b95e0,
+    facebook: #3b5998,
+    googleplus: #dc4e41
+  ),
+  sizes: (
+    sm: 25%,
+    md: 50%,
+    lg: 100%
+  )
+);
+.sns-icon {
+  &__btn {
+    @each $name, $color in map-get($sns-config, 'colors') {
+      &.-#{$name} {
+        background: $color url(/img/icon_#{$name}.png) no-repeat center;
+      }
+      @each $size, $width in map-get($sns-config, 'sizes') {
+        &.-#{$size} {
+          width: $width;
+        }
+      }
+    }
+  }
+}
+
+$layer: (
+  modal: 100,
+  header: 20,
+  tooltip: 10,
+  default: 1
+);
+.modal {
+  @include z-index(modal);
+}
+.header {
+  @include z-index(header);
+}
+.tooltip {
+  @include z-index(tooltip);
 }

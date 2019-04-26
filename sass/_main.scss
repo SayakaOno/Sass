@@ -1,3 +1,14 @@
 .main {
   color: brown;
+  @include clearfix;
+}
+
+#contents {
+  width: $width-wrap;
+}
+#main {
+  width: $width-main;
+}
+#side {
+  width: $width-side;
 }

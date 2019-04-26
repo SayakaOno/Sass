@@ -1,22 +1,23 @@
 @charset "UTF-8";
 
 // width ------------------------
-  $width-base: 1200px;
-  $width-main: 800px;
-  $width-side: 360px;
+$width-base: 1200px;
+$width-wrap: 960px;
+$width-main: 640px;
+$width-side: $width-wrap - $width-main - 20;
 
 // font  -------------------------
-  $font-base: Sans-Serif;
-  $font-serif: serif;
+$font-base: Sans-Serif;
+$font-serif: serif;
 
 // color  ------------------------
-  $color-main: #0062b2;
-  $color-sub: #def1fa;
-  $color-font: #333;
-  $color-link: #ff8c28;
+$color-main: #0062b2;
+$color-sub: #def1fa;
+$color-font: #333;
+$color-link: #ff8c28;
 
 // break point -------------------
-  $breakpoints: (
-    sp: "screen and (max-width: 599px)",
-    pc: "screen and (min-width: 600px)""
-  )
+$breakpoints: (
+  sp: 'screen and (max-width: 599px)',
+  pc: 'screen and (min-width: 600px)'
+);

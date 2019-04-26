@@ -1,3 +1,50 @@
-.mixin {
-  color: blue;
+@mixin clearfix {
+  &::after {
+    content: '';
+    display: table;
+    clear: both;
+  }
 }
+// example => _unique.scss
+
+@mixin itemBox($width, $height, $margin: null, $padding: null) {
+  width: $width;
+  height: $height;
+  margin: $margin;
+  padding: $padding;
+}
+// example => _unique.scss
+
+$normal: #f00;
+$hover: #00f;
+@mixin link-color($n: $normal, $h: $hover) {
+  color: $n;
+  &:hover {
+    color: $h;
+    text-decoration: none;
+  }
+}
+// example => _module.scss
+
+@mixin link-color2($n) {
+  color: $n;
+  &:hover {
+    color: lighten(&n, 30%);
+    text-decoration: none;
+  }
+}
+// example => _module.scss
+
+@mixin linear-gradient($color: #f00, $way: to bottom, $percent: 20%) {
+  background-image: linear-gradient(
+    $way,
+    $color 0%,
+    lighten($color, $percent) 100%
+  );
+}
+// example => _module.scss
+
+@mixin z-index($key) {
+  z-index: map-get($layer, $key);
+}
+// example => _module.scss

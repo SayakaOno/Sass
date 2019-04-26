@@ -3,4 +3,48 @@ p {
 }
 .notes {
   font-weight: bold;
+  @include clearfix;
+}
+.boxA {
+  @include itemBox(100px, null, 10px, 20px);
+}
+
+$border: 1px;
+.itemA {
+  width: calc(100% - #{$border} * 2);
+}
+$box: '100px - 1px * 2';
+$contents: '100% - 20px';
+.itemB {
+  width: calc(#{$contents} - #{$box});
+}
+
+$spaceClass: true !default;
+$spacePadding: false !default;
+$endValue: 10 !default;
+
+@if $spaceClass {
+  @for $i from 8 through $endValue {
+    .mt#{$i * 5} {
+      margin-top: 5px * $i !important;
+    }
+    .mb#{$i * 5} {
+      margin-bottom: 5px * $i !important;
+    }
+    @if $spacePadding {
+      .pt#{$i * 5} {
+        padding-top: 5px $i !important;
+      }
+      .pb#{$i * 5} {
+        padding-bottom: 5px $i !important;
+      }
+    }
+  }
+}
+
+.text {
+  font-size: rem(12);
+}
+.text2 {
+  font-size: rem(14, 12);
 }
